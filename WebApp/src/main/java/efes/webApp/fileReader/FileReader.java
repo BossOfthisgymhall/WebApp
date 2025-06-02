@@ -12,10 +12,12 @@ import java.io.InputStream;
 public class FileReader {
 
     private final String filePath;
+    @Value("${application.windowsFilePath}")
+    private final String winPath = "";
+    @Value("${application.unixFilePath}")
+    private final String unixPath = "";
 
-    @Autowired
-    public FileReader(@Value("${application.windowsFilePath}") String winPath,
-                      @Value("${application.unixFilePath}") String unixPath){
+    public FileReader(){
         if(osDetected().equals("Windows")){
             this.filePath = winPath;
         }else{
