@@ -30,7 +30,7 @@ public class FileReader {
         if(file.exists()) {
             try (InputStream fis = new FileInputStream(filePath);
                     Workbook workbook = new XSSFWorkbook(fis)) {
-                Sheet sheet = workbook.getSheetAt(0); // первый лист (индекс 0)
+                Sheet sheet = workbook.getSheetAt(0);
                 Row row = sheet.getRow(0);
                 Cell cell = row.getCell(0);
                 String value = cell.toString();
