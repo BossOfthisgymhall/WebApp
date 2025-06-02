@@ -1,7 +1,16 @@
 package efes.webApp.App;
 
+import java.io.File;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        ApplicationLaunching applicationLaunching = new ApplicationLaunching();
+        File file = new File(applicationLaunching.getFilePath());
+        System.out.println(applicationLaunching.osDetected());
+        if(file.exists()){
+            System.out.println("Такой путь есть" + applicationLaunching.getFilePath());
+        }else{
+            System.out.println("Путь не найдет: " + applicationLaunching.getFilePath());
+        }
     }
 }
