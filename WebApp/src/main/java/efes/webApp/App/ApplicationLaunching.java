@@ -5,9 +5,9 @@ public class ApplicationLaunching {
     public ApplicationLaunching(){
         String os = osDetected();
         if(os.equals("Windows")) {
-            this.filePath = "..\\..\\..\\..\\resources\\VereficationDataBase.xlsx";
+            this.filePath = "src\\main\\resources\\VereficationDataBase.xlsx";
         }else{
-            this.filePath = "resources/VereficationDataBase.xlsx";
+            this.filePath = "src/main/resources/VereficationDataBase.xlsx";
         }
     }
     public boolean launchApp(){

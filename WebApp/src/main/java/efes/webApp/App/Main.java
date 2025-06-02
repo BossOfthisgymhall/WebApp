@@ -8,7 +8,7 @@ public class Main {
         File file = new File(applicationLaunching.getFilePath());
         System.out.println(applicationLaunching.osDetected());
         if(file.exists()){
-            System.out.println("Такой путь есть" + applicationLaunching.getFilePath());
+            System.out.println("Такой путь есть: " + applicationLaunching.getFilePath());
         }else{
             System.out.println("Путь не найдет: " + applicationLaunching.getFilePath());
         }
