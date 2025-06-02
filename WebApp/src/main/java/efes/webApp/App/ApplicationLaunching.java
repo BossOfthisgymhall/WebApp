@@ -16,6 +16,7 @@ public class ApplicationLaunching {
 
     }
     public boolean launchApp(){
+        System.out.println(fileReader.osDetected());
         if(fileReader.getFilePath()!=null) {
             System.out.println(fileReader.getFilePath());
         }else{
