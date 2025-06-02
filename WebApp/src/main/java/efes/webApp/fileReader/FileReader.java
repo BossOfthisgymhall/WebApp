@@ -12,16 +12,14 @@ import java.io.InputStream;
 public class FileReader {
 
     private final String filePath;
-    @Value("${application.windowsFilePath}")
-    private final String winPath = "";
-    @Value("${application.unixFilePath}")
-    private final String unixPath = "";
+
 
     public FileReader(){
         if(osDetected().equals("Windows")){
-            this.filePath = winPath;
+            this.filePath = "src\\main\\resources\\VereficationDataBase.xlsx";
         }else{
-            this.filePath = unixPath;
+            this.filePath = "src/main/resources/VereficationDataBase.xlsx";
+
         }
     }
 

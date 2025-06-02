@@ -9,14 +9,18 @@ import java.io.File;
 
 @Component
 public class ApplicationLaunching {
+    @Autowired
     private FileReader fileReader;
     @Autowired
     public ApplicationLaunching(){
 
-
     }
     public boolean launchApp(){
-        System.out.println(fileReader.getFilePath());
+        if(fileReader.getFilePath()!=null) {
+            System.out.println(fileReader.getFilePath());
+        }else{
+            System.err.println("ERROR PATH");
+        }
         return false;
     }
 }
