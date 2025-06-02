@@ -7,34 +7,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ApplicationLaunching {
-    @Autowired
-    private String filePath;
     FileReader fileReader;
     @Autowired
     public ApplicationLaunching(FileReader fileReader){
         this.fileReader = fileReader;
-        String os = osDetected();
-        if(os.equals("Windows")) {
-            this.filePath = "src\\main\\resources\\VereficationDataBase.xlsx";
-        }else{
-            this.filePath = "src/main/resources/VereficationDataBase.xlsx";
-        }
-    }
-    /*
-    Класс полностью переписать под спринг
-    */
 
+    }
     public boolean launchApp(){
-        fileReader.parseXlsxFile();
+        System.out.println(fileReader.getFilePath());
         return false;
-    }
-    private String osDetected(){
-        String os = System.getProperty("os.name");
-        String[] parts = os.split(" ");
-        return parts[0];
-    }
-
-    public String getFilePath() {
-        return filePath;
     }
 }
