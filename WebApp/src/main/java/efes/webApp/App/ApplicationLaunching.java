@@ -1,18 +1,20 @@
 package efes.webApp.App;
 
 import efes.webApp.fileReader.FileReader;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ApplicationLaunching {
     private String filePath;
     FileReader fileReader;
-    public ApplicationLaunching(){
+    public ApplicationLaunching(FileReader fileReader){
+        this.fileReader = fileReader;
         String os = osDetected();
         if(os.equals("Windows")) {
             this.filePath = "src\\main\\resources\\VereficationDataBase.xlsx";
         }else{
             this.filePath = "src/main/resources/VereficationDataBase.xlsx";
         }
-        fileReader = new FileReader(this.filePath);
     }
     /*
     Класс полностью переписать под спринг
