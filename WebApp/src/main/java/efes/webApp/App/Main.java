@@ -6,7 +6,6 @@ public class Main {
     public static void main(String[] args) {
         ApplicationLaunching applicationLaunching = new ApplicationLaunching();
         File file = new File(applicationLaunching.getFilePath());
-        System.out.println(applicationLaunching.osDetected());
         if(file.exists()){
             System.out.println("Такой путь есть: " + applicationLaunching.getFilePath());
         }else{
