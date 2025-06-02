@@ -1,12 +1,14 @@
 package efes.webApp.App;
 
 import efes.webApp.fileReader.FileReader;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ApplicationLaunching {
     private String filePath;
     FileReader fileReader;
+    @Autowired
     public ApplicationLaunching(FileReader fileReader){
         this.fileReader = fileReader;
         String os = osDetected();
