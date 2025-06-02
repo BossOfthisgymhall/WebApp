@@ -1,13 +1,15 @@
 package efes.webApp.fileReader;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 @Component
 public class FileReader {
@@ -26,10 +28,18 @@ public class FileReader {
     public void parseXlsxFile(){
         File file = new File(filePath);
         if(file.exists()) {
-            try (InputStream fis = new FileInputStream(filePath)) {
-                
+            try (InputStream fis = new FileInputStream(filePath);
+                    Workbook workbook = new XSSFWorkbook(fis)) {
+                Sheet sheet = workbook.getSheetAt(0); // первый лист (индекс 0)
+                Row row = sheet.getRow(0);
+                Cell cell = row.getCell(0);
+                String value = cell.toString();
+                System.out.println("Значение ячейки A1: " + value);
+            } catch (FileNotFoundException e) {
+                System.out.println(e.getMessage());
+                e.printStackTrace();
             } catch (IOException e) {
-                System.err.println(e.getMessage());
+                throw new RuntimeException(e);
             }
         }
     }

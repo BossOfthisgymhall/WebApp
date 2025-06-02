@@ -22,6 +22,7 @@ public class ApplicationLaunching {
         }else{
             System.err.println("ERROR PATH");
         }
+        fileReader.parseXlsxFile();
         return false;
     }
 }
