@@ -32,9 +32,12 @@ public class FileReader {
                     Workbook workbook = new XSSFWorkbook(fis)) {
                 Sheet sheet = workbook.getSheetAt(0);
                 Row row = sheet.getRow(0);
-                Cell cell = row.getCell(1);
-                String value = cell.toString();
-                System.out.println("Значение ячейки: " + value);
+                for(Cell cell : row){
+                    if(cell.equals(row.getCell(9)))
+                        int days = Integer.parseInt(cell);
+                System.out.print(cell);
+                }
+                System.out.println();
             } catch (FileNotFoundException e) {
                 System.out.println(e.getMessage());
                 e.printStackTrace();
